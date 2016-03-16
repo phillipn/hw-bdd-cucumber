@@ -16,6 +16,10 @@ Then /^(?:|I )should (not )?see the following movies$/ do |boolean, movie_table|
       page.body.index(movie_row[:title]).should == nil
     end
   end
+  
+  within 'tbody' do   
+    all('tr').count.should == movie_table.hashes.size
+  end
 end
 
 # Make sure that one string (regexp) occurs before or after another one
